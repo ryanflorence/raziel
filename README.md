@@ -44,6 +44,10 @@ Copies your twitter password to the clipboard.
 
 Obviously, you can't store a password with the name `list` :P
 
+### Delete a password
+
+    $ raziel rm twitter
+
 Options
 -------
 
@@ -100,6 +104,8 @@ Your master password is stored as a sha1 hash.
 Your other passwords are encrypted with aes256 using your raw master
 password as the key (which isn't stored anywhere, you provide it with
 each use).
+
+So, it's pretty useless w/o knowing your master password.
 
 License
 -------
