@@ -1,0 +1,24 @@
+{
+  "name": "raziel",
+  "version": "0.0.1",
+  "description": "command line password management",
+  "author": "Ryan Florence <rpflorence+npm@gmail.com>",
+  "main": "./lib/main",
+  "directories": {
+    "lib": "./lib",
+    "bin": "./bin"
+  },
+  "bin": { "raziel": "./bin/raziel" },
+  "dependencies": {
+    "commander": "*",
+    "sha1": "*"
+  },
+  "devDependencies": {
+    "tap": "*"
+  },
+  "keywords": ["password"],
+  "repository": "git://github.com/rpflorence/raziel.git",
+  "homepage": "https://github.com/rpflorence/raziel",
+  "bugs": "https://github.com/rpflorence/raziel/issues"
+}
+
