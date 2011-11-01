@@ -11,7 +11,7 @@
   "bin": { "raziel": "./bin/raziel" },
   "dependencies": {
     "commander": "*",
-    "sha1": "*"
+    "bcrypt": "*"
   },
   "devDependencies": {
     "tap": "*"
