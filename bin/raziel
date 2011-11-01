@@ -1,6 +1,22 @@
 #!/usr/bin/env node
-require('../lib/main')(function (out) {
-  console.log(out);
+var app = require('../lib/main'),
+    program = require('commander');
+
+program.version('0.0.1')
+  .option('-p, --pass [password]', 'specify a password')
+  .option('-r, --reset', 'reset a password')
+  .option('-l, --length [length]', 'length, no less than 6', parseInt)
+  .option('-n, --nonumbers', 'no numbers', parseInt)
+  .option('-u, --nouppercase', 'no uppercase')
+  .option('-s, --nospecials', 'no special chars')
+  .option('-e, --echo', 'echo password')
+  .option('-m, --master [password]', 'provide master password')
+  .option('-j, --jsonfile [path]', 'password file path')
+  .parse(process.argv);
+
+
+app.exec(program, function (message) {
+  console.log(message);
   process.exit();
 });
 

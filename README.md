@@ -19,7 +19,7 @@ Basic Usage
 You may need to restart your terminal session after installing with npm.
 
 The first time you save a password raziel asks for the master password. The
-sha1 hash of this password is stored in `~/.raziel.json`. It's also used as
+bcrypted hash of this password is stored in `~/.raziel.json`. It's also used as
 the encryption key to all of your passwords, so if you forget it, you're
 hosed.  Sorry.
 
@@ -51,19 +51,21 @@ Obviously, you can't store a password with the name `list` :P
 Options
 -------
 
-    -h, --help             output usage information
-    -v, --version          output the version number
-    -p, --pass [password]  specify a password
-    -r, --reset            reset a password
-    -l, --length [length]  length, no less than 6
-    -n, --nonumbers        no numbers
-    -u, --nouppercase      no uppercase
-    -s, --nospecials       no special chars
-    -e, --echo             echo password
+    -h, --help               output usage information
+    -v, --version            output the version number
+    -p, --pass [password]    specify a password
+    -r, --reset              reset a password
+    -l, --length [length]    length, no less than 6
+    -n, --nonumbers          no numbers
+    -u, --nouppercase        no uppercase
+    -s, --nospecials         no special chars
+    -e, --echo               echo password
+    -m, --master [password]  provide master password
+    -j, --jsonfile [path]    password file path
 
 ### Examples
 
-Create a new, auto-generated password
+Create a new, auto-generated password on the `fb` key.
 
     $ raziel fb
 
@@ -75,7 +77,7 @@ Echo the password instead of copying to clipboard
 
     $ raziel fb -e
 
-Create a new specific password
+Create a new specific password on the key `github`.
 
     $ raziel github -p muhpassword
 
@@ -96,10 +98,14 @@ chars)
 
     $ raziel pansie -nusl 6
 
+Echo a password w/o being prompted for the master password:
+
+    $ raziel fb -e -m masterpassword
+
 WHAT IF SOMEBODY JACKS MY PASSWORD FILE!?
 -----------------------------------------
 
-Your master password is stored as a sha1 hash.
+Your master password is stored as a bcrypted hash.
 
 Your other passwords are encrypted with aes256 using your raw master
 password as the key (which isn't stored anywhere, you provide it with
