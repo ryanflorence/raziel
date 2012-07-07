@@ -15,7 +15,7 @@ test('creates a password file', function (t) {
   };
 
   raziel.exec(program, function (message) {
-    path.exists(program.jsonfile, function (exists) {
+    fs.exists(program.jsonfile, function (exists) {
       t.ok(exists, 'created password file');
       fs.unlinkSync(program.jsonfile);
       t.end();
